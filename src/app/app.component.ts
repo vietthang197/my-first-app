@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-first-app';
+  name: string = '';
+  listName: Array<string> = [];
+
+  updateListName = () => {
+    this.listName.push(this.name);
+    this.name = '';
+  }
+
+  clearListName = () => {
+    this.listName = [];
+  }
 }
