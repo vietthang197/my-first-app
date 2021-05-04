@@ -1,2 +1,51 @@
 <input type="text" [(ngModel)]="status">
 <button class="btn btn-md btn-warning" [disabled]="allowDisabled">Hihi</button>
+<p>{{'data print: ' + !allowDisabled}}</p>
+<!-- <button >String interpolation in property</button> -->
+
+<button (click)="onCreate($event)">click my site</button>
+<p>{{'Server status: ' + serverCreationStatus }}</p>
+
+<hr>
+<input type="text" class="form-control" (input)="onUpdateServerName($event)">
+<h1>{{serverName}}</h1>
+<h2>{{geoLocation}}</h2>
+
+<hr>
+<h1>Course Directives</h1>
+<div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" id="customSwitch1" [(ngModel)]="switch">
+    <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+  </div>
+<h2>Switch is {{switch}}</h2>
+<h2 *ngIf="switch">Machine turn On</h2>
+<h2 *ngIf="!switch">Machine turn Off</h2>
+
+<hr>
+<h2>*ngIf directives</h2>
+<button class="btn btn-md btn-default" (click)="changeCondition()">Change condition</button>
+<span>Value of condition is {{condition}}</span>
+<p *ngIf="condition; else conditionFalse" class="alert alert-success" role="alert">  Condition is true!</p>
+<ng-template #conditionFalse>
+    <p class="alert alert-danger" role="alert">
+        Condition is false!
+    </p>
+</ng-template>
+
+<hr>
+<h2> directives</h2>
+<button class="btn btn-md btn-default" (click)="changeCondition()">change condition with [ngStyle]</button>
+<p [ngClass]="condition ? 'alert alert-success': 'alert alert-danger'" role="alert">Condition is {{condition}} !</p>
+<p [ngStyle]="{backgroundColor: color}">mother dispatch</p>
+<p [ngClass]="getDataClass()"></p>
+
+<hr>
+<h2 [ngClass]="{'fuck bitch': condition}">
+    mối quan hệ giữa ng style và ng class, hình như ngstyle override lại ngclass
+</h2>
+
+<hr>
+<h2>Directives *ngFor</h2>
+<ul>
+    <li *ngFor="let dataItem of dataList; let i = index">{{i + "-" + dataItem}}</li>
+</ul>
