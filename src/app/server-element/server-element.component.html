@@ -1,1 +1,9 @@
-<p>server-element works!</p>
+<div class="card mt-4">
+    <div class="card-header">{{element.serverName}}</div>
+    <div class="card-body">
+        <p>
+            <strong *ngIf="element.type === 'server'" style="color: red;">{{element.content}}</strong>
+            <em *ngIf="element.type === 'blueprint'">{{element.content}}</em>
+        </p>
+    </div>
+</div>

@@ -1,1 +1,17 @@
-<p>cokpit works!</p>
+<div class="row">
+    <div class="col-md-12">
+        <p>Add new server or blueprints!</p>
+        <label for="serverName">Server Name</label>
+        <input type="text" id="serverName" class="form-control" [(ngModel)]="serverName">
+        <label for="serverContent">Server Content</label>
+        <input type="text" id="serverContent" class="form-control" [(ngModel)]="serverContent">
+        <br>
+        <button
+                class="btn btn-primary mr-2"
+                (click)="onServerAdd()"> Add Server
+        </button>
+        <button
+                class="btn btn-primary ml-2"
+                (click)="onServerBlueprintAdd()">Add Server Blueprint</button>
+    </div>
+</div>

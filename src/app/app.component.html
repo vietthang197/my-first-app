@@ -1,7 +1,9 @@
-<!-- <input class="form-control" type="text" [(ngModel)]="name" (keyup.enter)="updateListName()">
-<button class="btn btn-success btn-md" (click)="clearListName()">clear</button>
-<ul>
-  <li *ngFor="let item of listName">{{item}}</li>
-</ul>
-<app-server></app-server> -->
-<a id="app-server"></a>
+<div class="container">
+    <app-cokpit (serverCreated)="onServerAddOnAppComponent($event)" (blueprintCreated)="onServerBlueprintAddOnAppComponent($event)"></app-cokpit>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <app-server-element *ngFor="let element of dataServerElements" [srvElement]="element"></app-server-element>
+        </div>
+    </div>
+</div>
