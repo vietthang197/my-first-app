@@ -15,6 +15,10 @@ export class AppComponent {
       new Server('fuk', 'blueprint', 'sss')
   ];
 
+  showHome: boolean = false;
+
+  items = ['Tomato', 'Apple', 'Banana', 'Grape', 'Mango', 'Starfruit'];
+
   updateListName() {
     this.listName.push(this.name);
     this.name = '';

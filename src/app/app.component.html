@@ -3,7 +3,40 @@
     <hr>
     <div class="row">
         <div class="col-md-12">
-            <app-server-element *ngFor="let element of dataServerElements" [srvElement]="element"></app-server-element>
+            <app-server-element *ngFor="let element of dataServerElements" [srvElement]="element">
+                <p>
+                    <strong *ngIf="element.type === 'server'" style="color: red;">{{element.content}}</strong>
+                    <em *ngIf="element.type === 'blueprint'">{{element.content}}</em>
+                </p>
+                <h1>fuck</h1>
+            </app-server-element>
         </div>
     </div>
 </div>
+<h1 *ngIf="showHome">Con cho nay</h1>
+<ng-template [ngIf]="!showHome">
+    <h2>Home!, go to the home</h2>
+    <h2>fuck the bitch</h2>
+</ng-template>
+
+<ng-container *ngFor="let item of items">
+    <div *ngIf="item == 'Apple'">{{item}}</div>
+</ng-container>
+
+<h1>
+    đây là logo của công ty
+    <ng-container *ngTemplateOutlet="logoCongTy"></ng-container>
+</h1>
+<h2>
+    đây cũng là logo của công ty nhưng nhỏ hơn h1
+    <ng-container *ngTemplateOutlet="logoCongTy"></ng-container>
+</h2>
+<h3>
+    đây cũng là logo của công ty nhưng nhỏ hơn h2
+    <ng-container *ngTemplateOutlet="logoCongTy"></ng-container>
+</h3>
+<ng-template #logoCongTy>
+    <p>
+        :D
+    </p>
+</ng-template>
