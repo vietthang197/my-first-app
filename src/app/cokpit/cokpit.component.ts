@@ -18,6 +18,7 @@ export class CokpitComponent implements OnInit{
 
   @Output() serverCreated = new EventEmitter<Server>();
   @Output() blueprintCreated = new EventEmitter<Server>();
+
   @ViewChild('serverNameInput', {static: false}) serverNameInput;
 
   serverName: string = '';
