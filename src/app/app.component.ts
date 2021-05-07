@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {Server} from './shared/server.model';
 
 @Component({
@@ -6,29 +6,29 @@ import {Server} from './shared/server.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title: 'fuck';
   name: string = '';
   listName: Array<string> = [];
   dataServerElements: Server[] = [
-      new Server('fuk', 'server', 'sss'),
-      new Server('fuk', 'blueprint', 'sss')
+    new Server('fuk', 'server', 'sss'),
+    new Server('fuk', 'blueprint', 'sss')
   ];
 
   showHome: boolean = false;
 
   items = ['Tomato', 'Apple', 'Banana', 'Grape', 'Mango', 'Starfruit'];
 
-  updateListName() {
+  updateListName(): void {
     this.listName.push(this.name);
     this.name = '';
   }
 
-  clearListName() {
+  clearListName(): void {
     this.listName = [];
   }
 
-  onServerAddOnAppComponent(data: Server) {
+  onServerAddOnAppComponent(data: Server): void {
     this.dataServerElements.push(new Server(data.serverName, 'server', data.content));
     // this.resetForm();
   }
@@ -38,9 +38,16 @@ export class AppComponent {
     // this.resetForm();
   }
 
-  // resetForm() {
-  //   this.serverName = null;
-  //   this.serverContent = null;
-  // }
+  constructor() {
+
+  }
+
+  ngOnInit(): void {
+
+  }
+
+  removeListServer(): void {
+    this.dataServerElements.splice(0, 1);
+  }
 
 }

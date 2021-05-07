@@ -1,10 +1,8 @@
 import {
-  AfterViewInit,
   Component,
-  ElementRef,
   EventEmitter,
   OnInit,
-  Output,
+  Output, SimpleChanges,
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
@@ -16,7 +14,7 @@ import {Server} from '../shared/server.model';
   styleUrls: ['./cokpit.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class CokpitComponent implements OnInit, AfterViewInit {
+export class CokpitComponent implements OnInit{
 
   @Output() serverCreated = new EventEmitter<Server>();
   @Output() blueprintCreated = new EventEmitter<Server>();
@@ -26,14 +24,10 @@ export class CokpitComponent implements OnInit, AfterViewInit {
   serverContent: '';
   serverElements: Server[] = [];
 
-  constructor() { }
-
-  ngOnInit(): void {
-    console.log(this.serverNameInput)
+  constructor() {
   }
 
   onServerAdd() {
-    console.log(this.serverNameInput)
     this.serverCreated.emit(new Server(this.serverName, 'server', this.serverContent));
   }
 
@@ -41,7 +35,6 @@ export class CokpitComponent implements OnInit, AfterViewInit {
     this.blueprintCreated.emit(new Server(this.serverName, 'blueprint', this.serverContent));
   }
 
-  ngAfterViewInit(): void {
-    console.log(this.serverNameInput)
+  ngOnInit(): void {
   }
 }

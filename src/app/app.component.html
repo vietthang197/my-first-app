@@ -2,9 +2,13 @@
     <app-cokpit (serverCreated)="onServerAddOnAppComponent($event)" (blueprintCreated)="onServerBlueprintAddOnAppComponent($event)"></app-cokpit>
     <hr>
     <div class="row">
+        <button class="btn btn-success btn-md" (click)="removeListServer()">remove item server</button>
+    </div>
+    <hr>
+    <div class="row">
         <div class="col-md-12">
             <app-server-element *ngFor="let element of dataServerElements" [srvElement]="element">
-                <p>
+                <p #contentElmParagraph>
                     <strong *ngIf="element.type === 'server'" style="color: red;">{{element.content}}</strong>
                     <em *ngIf="element.type === 'blueprint'">{{element.content}}</em>
                 </p>
